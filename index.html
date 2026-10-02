@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Raleway:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -36,99 +36,52 @@
 
 <body class="index-page">
 
-  <header id="header" class="header dark-background">
-    <div class="container header-inner">
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
 
-      <a href="#hero" class="logo d-flex align-items-center">
-        <span class="logo-mark" aria-hidden="true">JY</span>
-        <h1 class="sitename">Jahsauve <span class="logo-accent">Yimele</span></h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Accueil</a></li>
-          <li><a href="#about"><i class="bi bi-person navicon"></i>À propos</a></li>
-          <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Réalisations</a></li>
-          <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
-          <li><a href="#contact" class="nav-cta"><i class="bi bi-envelope navicon"></i>Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-socials">
-        <a href="https://github.com/dev-Jahsauve" target="_blank" rel="noopener" aria-label="GitHub">
-          <i class="bi bi-github"></i>
-        </a>
-        <a href="https://wa.me/237698308780?text=Bonjour%20je%20souhaite%20en%20savoir%20davantage%20sur%20vos%20services"
-          class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <i class="bi bi-whatsapp"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/jahsauve-yimele-387468344?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-          class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="bi bi-linkedin"></i>
-        </a>
-      </div>
-
-      <i class="header-toggle d-xl-none bi bi-list" role="button" tabindex="0" aria-label="Ouvrir le menu"></i>
-
+    <div class="profile-img">
+      <img src="assets/img/my-profile-img.webp" onerror="this.src='assets/img/my-profile-img.png'"
+        alt="Portrait de Jahsauve Yimele" class="img-fluid rounded-circle">
     </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Jahsauve Yimele</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/dev-Jahsauve" target="_blank" rel="noopener" aria-label="GitHub"><i
+          class="bi bi-github"></i></a>
+      <a href="https://wa.me/237698308780?text=Bonjour%20je%20souhaite%20en%20savoir%20davantage%20sur%20vos%20services"
+        class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <a href="https://www.linkedin.com/in/jahsauve-yimele-387468344?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Accueil</a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i>À propos</a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Réalisations</a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i>Contact</a></li>
+      </ul>
+    </nav>
+
   </header>
 
   <main class="main">    <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <div class="hero-bg" aria-hidden="true"></div>
+      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
 
-      <div class="container hero-inner">
+      <canvas id="hero-3d" aria-hidden="true"></canvas>
 
-        <div class="hero-content">
-          <span class="hero-badge"><span class="badge-dot"></span>Disponible pour de nouveaux projets</span>
-
-          <h1 class="hero-title">Jahsauve<br><span class="gradient-text">Yimele</span></h1>
-
-          <p class="hero-subtitle">Je suis <span class="typed"
-              data-typed-items="Développeur Web,Web Designer,Développeur Freelance">Développeur Web</span><span
-              class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-
-          <p class="hero-text">
-            Développeur web &amp; web designer basé à Douala. Je transforme vos idées en sites vitrines,
-            boutiques en ligne et expériences web modernes, rapides et centrées sur l'utilisateur.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#portfolio" class="btn-hero btn-hero-primary">Voir mes réalisations <i
-                class="bi bi-arrow-right"></i></a>
-            <a href="#contact" class="btn-hero btn-hero-outline">Me contacter</a>
-          </div>
-
-          <div class="hero-stack" aria-label="Technologies maîtrisées">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>PHP</span>
-            <span>Bootstrap</span>
-            <span>MySQL</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <span class="hero-orb hero-orb-1" aria-hidden="true"></span>
-          <span class="hero-orb hero-orb-2" aria-hidden="true"></span>
-
-          <div class="hero-photo">
-            <img src="assets/img/my-profile-img.webp" onerror="this.src='assets/img/my-profile-img.png'"
-              alt="Portrait de Jahsauve Yimele">
-            <div class="hero-photo-caption">
-              <strong>Jahsauve Yimele</strong>
-              <span>Douala, Cameroun</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <h2>Jahsauve Yimele</h2>
+        <p>Je suis <span class="typed"
+            data-typed-items="Développeur Web,Web Designer,Développeur Freelance">Développeur Web</span><span
+            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
-
-      <a href="#about" class="hero-scroll" aria-label="Défiler vers le bas">
-        <i class="bi bi-chevron-down"></i>
-      </a>
 
     </section><!-- /Hero Section -->
 
@@ -374,7 +327,7 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
-                  <img src="assets/img/portfolio/GLOBAL.webp" class="img-fluid" loading="lazy"
+                  <img src="assets/img/portfolio/sarl.webp" class="img-fluid" loading="lazy"
                     alt="Aperçu du site Global Edition SARL">
                   <span class="portfolio-cat">Site vitrine</span>
                   <a class="portfolio-qr" href="https://willowy-dango-ab29e7.netlify.app/" target="_blank"
@@ -392,7 +345,7 @@
                     <a href="https://willowy-dango-ab29e7.netlify.app/" title="Services de Global Edition SARL"
                       target="_blank" rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i>
                       Voir le site</a>
-                    <a href="assets/img/portfolio/GLOBAL.webp" class="glightbox preview-link"
+                    <a href="assets/img/portfolio/sarl.webp" class="glightbox preview-link"
                       title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
@@ -749,9 +702,11 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/three/three.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/hero3d.js"></script>
 
 </body>
 
