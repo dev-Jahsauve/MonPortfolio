@@ -22,6 +22,19 @@
   headerToggleBtn.addEventListener('click', headerToggle);
 
   /**
+   * Header sticky : fond plus opaque une fois défilé
+   */
+  const headerEl = document.querySelector('#header');
+
+  function headerScrolled() {
+    if (headerEl) {
+      headerEl.classList.toggle('header-scrolled', window.scrollY > 60);
+    }
+  }
+  window.addEventListener('load', headerScrolled);
+  document.addEventListener('scroll', headerScrolled);
+
+  /**
    * Hide mobile nav on same-page/hash links
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {

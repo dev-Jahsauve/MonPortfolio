@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Mon portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>Jahsauve Yimele — Développeur web & web designer | Portfolio</title>
+  <meta
+    content="Portfolio de Jahsauve Yimele, développeur web & web designer basé à Douala (Cameroun) : sites vitrines, e-commerce, applications web et design d'interfaces."
+    name="description">
+  <meta content="Jahsauve Yimele, développeur web, web designer, freelance, Douala, Cameroun, portfolio, PHP, Bootstrap"
+    name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.jpg" rel="icon">
@@ -15,6 +18,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,53 +36,99 @@
 
 <body class="index-page">
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <header id="header" class="header dark-background">
+    <div class="container header-inner">
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.png" alt="" class="img-fluid rounded-circle">
+      <a href="#hero" class="logo d-flex align-items-center">
+        <span class="logo-mark" aria-hidden="true">JY</span>
+        <h1 class="sitename">Jahsauve <span class="logo-accent">Yimele</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Accueil</a></li>
+          <li><a href="#about"><i class="bi bi-person navicon"></i>À propos</a></li>
+          <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Réalisations</a></li>
+          <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
+          <li><a href="#contact" class="nav-cta"><i class="bi bi-envelope navicon"></i>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-socials">
+        <a href="https://github.com/dev-Jahsauve" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://wa.me/237698308780?text=Bonjour%20je%20souhaite%20en%20savoir%20davantage%20sur%20vos%20services"
+          class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jahsauve-yimele-387468344?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <i class="header-toggle d-xl-none bi bi-list" role="button" tabindex="0" aria-label="Ouvrir le menu"></i>
+
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Jahsauve yimele</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="https://github.com/dev-Jahsauve" class="Github"><i class="bi bi-github"></i></a>
-      <a href="https://wa.me/237698308780?textj=Bonjour%20je%20souhaite%20en%20savoir%20davantage%20sur%20vos%20services"
-        class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-      <a href="https://www.linkedin.com/in/jahsauve-yimele-387468344?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-        class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> A propos</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Mes realisation</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-
   </header>
 
-  <main class="main">
+  <main class="main">    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background img-fluid">
+      <div class="hero-bg" aria-hidden="true"></div>
 
-      <img src="assets/img/hero-bg.jpg" alt="photo" data-aos="fade-in">
+      <div class="container hero-inner">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Jahsauve yimele</h2>
-        <p>je suis un <span class="typed"
-            data-typed-items="Programmeur, web Designeur, Developeur-Freelance ">Programmeur</span><span
-            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span
-            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <div class="hero-content">
+          <span class="hero-badge"><span class="badge-dot"></span>Disponible pour de nouveaux projets</span>
+
+          <h1 class="hero-title">Jahsauve<br><span class="gradient-text">Yimele</span></h1>
+
+          <p class="hero-subtitle">Je suis <span class="typed"
+              data-typed-items="Développeur Web,Web Designer,Développeur Freelance">Développeur Web</span><span
+              class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+
+          <p class="hero-text">
+            Développeur web &amp; web designer basé à Douala. Je transforme vos idées en sites vitrines,
+            boutiques en ligne et expériences web modernes, rapides et centrées sur l'utilisateur.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn-hero btn-hero-primary">Voir mes réalisations <i
+                class="bi bi-arrow-right"></i></a>
+            <a href="#contact" class="btn-hero btn-hero-outline">Me contacter</a>
+          </div>
+
+          <div class="hero-stack" aria-label="Technologies maîtrisées">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>PHP</span>
+            <span>Bootstrap</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <span class="hero-orb hero-orb-1" aria-hidden="true"></span>
+          <span class="hero-orb hero-orb-2" aria-hidden="true"></span>
+
+          <div class="hero-photo">
+            <img src="assets/img/my-profile-img.webp" onerror="this.src='assets/img/my-profile-img.png'"
+              alt="Portrait de Jahsauve Yimele">
+            <div class="hero-photo-caption">
+              <strong>Jahsauve Yimele</strong>
+              <span>Douala, Cameroun</span>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <a href="#about" class="hero-scroll" aria-label="Défiler vers le bas">
+        <i class="bi bi-chevron-down"></i>
+      </a>
 
     </section><!-- /Hero Section -->
 
@@ -85,7 +137,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>A propos</h2>
+        <h2>À propos</h2>
         <p>Je suis passionné par le développement web et la création d’interfaces intuitives. Grâce à mes compétences en
           design et en programmation, je conçois des solutions numériques modernes, performantes et centrées
           utilisateur.
@@ -96,32 +148,30 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.png" class="img-fluid" alt="">
+            <img src="assets/img/my-profile-img.webp" onerror="this.src='assets/img/my-profile-img.png'"
+              class="img-fluid" alt="Portrait de Jahsauve Yimele">
           </div>
           <div class="col-lg-8 content">
-            <h2> Developeur-web&amp; Web Designeur.</h2>
+            <h2>Développeur web &amp; Web Designer.</h2>
             <p class="fst-italic py-3">
               Je suis un développeur web créatif avec une solide expérience en conception d’interfaces et développement
               front-end/back-end. Mon objectif est de transformer des idées en produits digitaux efficaces.
             </p>
             <div class="row">
               <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span>21 Aout 2006</span>
+                <ul>                  <li><i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span>21 août 2006</span>
                   </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Site Web:</strong> <span>www.portofolio.com</span>
-                  </li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Site Web:</strong>
+                    <span>mon-portfolio-opal-phi.vercel.app</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Tel:</strong> <span>+237 6 98 30 87 80</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>ville:</strong> <span> Douala, Cameroun</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Douala, Cameroun</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>20</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Âge:</strong> <span>20</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Diplôme :</strong> <span>BTS Développement Web</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>jahsauveymele@example.com</span>
-                  </li>
+                  </li>                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>jahsauveymele@gmail.com</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Disponible</span></li>
                 </ul>
               </div>
@@ -221,112 +271,261 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Projects Phare</li>
+            <li data-filter="*" class="filter-active">Projets phares</li>
           </ul><!-- End Portfolio Filters -->
 
 
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <!-- Global Edittion Sarl -->
+            <!-- AfriTools AI (nouveau) -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/GLOBAL.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>site vitrine</h4>
-                  <p>Global Edittion Sarl</p>
-                  <a href="https://willowy-dango-ab29e7.netlify.app/" title="services de GLOBAL SARL" target="_blank">
-                    <i class="bi bi-link-45deg"></i>
-                  </a>
-                  <a href="assets/img/portfolio/GLOBAL.png" class="glightbox preview-link" title="Agrandir">
-                    <i class="bi bi-link-45deg"></i>
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/afritools.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu du site AfriTools AI">
+                  <span class="portfolio-cat">SaaS · IA</span>
+                  <span class="portfolio-status">En cours</span>
+                  <a class="portfolio-qr" href="https://afritools.netlify.app" target="_blank" rel="noopener"
+                    title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fafritools.netlify.app&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers AfriTools AI">
                   </a>
                 </div>
-              </div>
-
+                <div class="portfolio-body">
+                  <h3>AfriTools AI</h3>
+                  <p>Projet SaaS en cours de développement pour les entrepreneurs africains : un outil IA de génération
+                    de contenus marketing.</p>
+                  <div class="portfolio-tags"><span>SaaS</span><span>IA</span><span>Marketing</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://afritools.netlify.app" target="_blank" rel="noopener"
+                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
+                    <a href="assets/img/portfolio/afritools.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
             </div><!-- End Portfolio Item -->
 
-            <!-- portfolio -->
+            <!-- Fabiole Metal - Site Vitrine (nouveau) -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/fabiole-vitrine.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu du site vitrine Fabiole Metal">
+                  <span class="portfolio-cat">Site vitrine</span>
+                  <span class="portfolio-status">Nouveau</span>
+                  <a class="portfolio-qr" href="https://fabiole-liard.vercel.app/" target="_blank" rel="noopener"
+                    title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Ffabiole-liard.vercel.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers le site Fabiole Metal">
+                  </a>
+                </div>
+                <div class="portfolio-body">
+                  <h3>Fabiole Metal — Site Vitrine</h3>
+                  <p>Site vitrine professionnel réalisé pour un client : fabrication métallique sur mesure.</p>
+                  <div class="portfolio-tags"><span>Site vitrine</span><span>Client</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://fabiole-liard.vercel.app/" target="_blank" rel="noopener"
+                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
+                    <a href="assets/img/portfolio/fabiole-vitrine.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Fabiole Metal - E-commerce (nouveau) -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/portfolio.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Mon portfolio</h4>
-                  <p>Presentation de mon profil dev</p>
-                  <a href="./index.html" title="Site personnel" target="_blank"><i class="bi bi-link-45deg"></i></a>
-                  <a href="assets/img/portfolio/portfolio.png" class="glightbox preview-link" title="Agrandir">
-                    <i class="bi bi-link-45deg"></i>
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/fabiole-ecommerce.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu de la boutique Fabiole Metal">
+                  <span class="portfolio-cat">E-commerce</span>
+                  <span class="portfolio-status">Nouveau</span>
+                  <a class="portfolio-qr" href="https://fabio-m-gfvr.vercel.app/" target="_blank" rel="noopener"
+                    title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Ffabio-m-gfvr.vercel.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers la boutique Fabiole Metal">
                   </a>
                 </div>
-              </div>
+                <div class="portfolio-body">
+                  <h3>Fabiole Metal — E-commerce</h3>
+                  <p>Boutique e-commerce réalisée pour le même client : vente d'ouvrages métalliques en ligne.</p>
+                  <div class="portfolio-tags"><span>E-commerce</span><span>Boutique</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://fabio-m-gfvr.vercel.app/" target="_blank" rel="noopener"
+                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir la boutique</a>
+                    <a href="assets/img/portfolio/fabiole-ecommerce.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Global Edition Sarl -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/GLOBAL.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu du site Global Edition SARL">
+                  <span class="portfolio-cat">Site vitrine</span>
+                  <a class="portfolio-qr" href="https://willowy-dango-ab29e7.netlify.app/" target="_blank"
+                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fwillowy-dango-ab29e7.netlify.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers le site Global Edition SARL">
+                  </a>
+                </div>
+                <div class="portfolio-body">
+                  <h3>Global Edition SARL</h3>
+                  <p>Site vitrine présentant les services de la société Global Edition.</p>
+                  <div class="portfolio-tags"><span>Site vitrine</span><span>Client</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://willowy-dango-ab29e7.netlify.app/" title="Services de Global Edition SARL"
+                      target="_blank" rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i>
+                      Voir le site</a>
+                    <a href="assets/img/portfolio/GLOBAL.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Mon portfolio -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/portfolio.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu de mon portfolio">
+                  <span class="portfolio-cat">Portfolio</span>
+                  <a class="portfolio-qr" href="https://mon-portfolio-opal-phi.vercel.app" target="_blank"
+                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fmon-portfolio-opal-phi.vercel.app&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers mon portfolio en ligne">
+                  </a>
+                </div>
+                <div class="portfolio-body">
+                  <h3>Mon Portfolio</h3>
+                  <p>Présentation de mon profil de développeur.</p>
+                  <div class="portfolio-tags"><span>Portfolio</span><span>Design</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://mon-portfolio-opal-phi.vercel.app" target="_blank" rel="noopener"
+                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
+                    <a href="assets/img/portfolio/portfolio.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
             </div>
 
-            <!-- Mon cv numerique -->
+            <!-- Mon CV numérique -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/cv.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>mon cv</h4>
-                  <p>Presentation de mon parcours</p>
-                  <a href="https://jahsauve.netlify.app/" title="Apercu de mon curriculum vitae" target="_blank">
-                    <i class="bi bi-link-45deg"></i>
-                  </a>
-                  <a href="assets/img/portfolio/cv.png" class="glightbox preview-link" title="Agrandir">
-                    <i class="bi bi-link-45deg"></i>
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/cv.webp" class="img-fluid" loading="lazy" alt="Aperçu de mon CV en ligne">
+                  <span class="portfolio-cat">CV numérique</span>
+                  <a class="portfolio-qr" href="https://jahsauve.netlify.app/" target="_blank" rel="noopener"
+                    title="Scannez ce QR code pour ouvrir le CV sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fjahsauve.netlify.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers mon CV en ligne">
                   </a>
                 </div>
-              </div>
+                <div class="portfolio-body">
+                  <h3>Mon CV en ligne</h3>
+                  <p>Présentation de mon parcours et de mes compétences.</p>
+                  <div class="portfolio-tags"><span>CV</span><span>Parcours</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://jahsauve.netlify.app/" title="Aperçu de mon curriculum vitae" target="_blank"
+                      rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le CV</a>
+                    <a href="assets/img/portfolio/cv.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
             </div><!-- End Portfolio Item -->
 
-            <!-- ecosanter -->
+            <!-- Ecosanter -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/ecosanter.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Ecosanter</h4>
-                  <p>Platforme de telemedecine /hors ligne pour le moment</p>
-                  <a href="assets/img/portfolio/ecosanter.png" title="apercu de la page de recherche"
-                    class="glightbox preview-link"><i class="bi bi-link-45deg"></i>
-                  </a>
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/ecosanter.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu de la plateforme Ecosanter">
+                  <span class="portfolio-cat">Santé · Télémedecine</span>
                 </div>
-              </div>
+                <div class="portfolio-body">
+                  <h3>Ecosanter</h3>
+                  <p>Plateforme de télémédecine — hors ligne pour le moment.</p>
+                  <div class="portfolio-tags"><span>Santé</span><span>Télémedecine</span></div>
+                  <div class="portfolio-actions is-preview">
+                    <a href="assets/img/portfolio/ecosanter.webp" title="Aperçu de la page de recherche"
+                      class="glightbox preview-link"><i class="bi bi-arrows-fullscreen"></i> Voir l'aperçu</a>
+                  </div>
+                </div>
+              </article>
             </div><!-- End Portfolio Item -->
 
-            <!-- Gestion des notes -->
+            <!-- Gesnotes -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/GESNOTES.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Gesnotes</h4>
-                  <p>Gestion des notes pour les etudiants</p>
-                  <a href="https://dev-jahsauve.github.io/Gesnotes/" title="voir le site de validation" target="_blank">
-                    <i class="bi bi-link-45deg"></i>
-                  </a>
-                  <a href="assets/img/portfolio/GESNOTES.png" class="glightbox preview-link" title="Agrandir">
-                    <i class="bi bi-link-45deg"></i>
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/GESNOTES.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu de l'application Gesnotes">
+                  <span class="portfolio-cat">Éducation</span>
+                  <a class="portfolio-qr" href="https://dev-jahsauve.github.io/Gesnotes/" target="_blank"
+                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    <img
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fdev-jahsauve.github.io%2FGesnotes%2F&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers Gesnotes">
                   </a>
                 </div>
-              </div>
+                <div class="portfolio-body">
+                  <h3>Gesnotes</h3>
+                  <p>Gestion des notes pour les étudiants.</p>
+                  <div class="portfolio-tags"><span>Éducation</span><span>Gestion</span></div>
+                  <div class="portfolio-actions">
+                    <a href="https://dev-jahsauve.github.io/Gesnotes/" title="Voir le site de validation"
+                      target="_blank" rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i>
+                      Voir le site</a>
+                    <a href="assets/img/portfolio/GESNOTES.webp" class="glightbox preview-link"
+                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                  </div>
+                </div>
+              </article>
             </div><!-- End Portfolio Item -->
 
-            <!-- pharmatrix -->
+            <!-- Pharmatrix -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/Medoc.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>pharmatrix</h4>
-                  <p>Platforme de localisation de medicament / hors ligne pour le moment </p>
-                  <a href="assets/img/portfolio/Medoc.png" title="apercu de la page de recherche"
-                    class="glightbox preview-link"><i class="bi bi-link-45deg"></i>
-                  </a>
+              <article class="portfolio-card h-100">
+                <div class="portfolio-thumb">
+                  <img src="assets/img/portfolio/Medoc.webp" class="img-fluid" loading="lazy"
+                    alt="Aperçu de la plateforme Pharmatrix">
+                  <span class="portfolio-cat">Santé · Médicaments</span>
                 </div>
-              </div>
+                <div class="portfolio-body">
+                  <h3>Pharmatrix</h3>
+                  <p>Plateforme de localisation de médicaments — hors ligne pour le moment.</p>
+                  <div class="portfolio-tags"><span>Santé</span><span>Localisation</span></div>
+                  <div class="portfolio-actions is-preview">
+                    <a href="assets/img/portfolio/Medoc.webp" title="Aperçu de la page de recherche"
+                      class="glightbox preview-link"><i class="bi bi-arrows-fullscreen"></i> Voir l'aperçu</a>
+                  </div>
+                </div>
+              </article>
             </div><!-- End Portfolio Item -->
 
           </div><!-- End Portfolio Container -->
@@ -357,8 +556,7 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">🖥 Conception d’interfaces
-                  modernes</a></h4>
+              <h4 class="title">Conception d’interfaces modernes</h4>
               <p class="description">
                 Je crée des interfaces utilisateurs interactives, intuitives et adaptées à tous les écrans (responsive
                 design), en utilisant HTML5, CSS3, JavaScript et Bootstrap.
@@ -370,8 +568,7 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Développement back-end PHP
-                  (MVC) </a></h4>
+              <h4 class="title">Développement back-end PHP (MVC)</h4>
               <p class="description">
                 Développement de la logique métier avec PHP en architecture MVC pour des sites web performants,
                 organisés et évolutifs, avec gestion de base de données MySQL.
@@ -382,11 +579,7 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
             <div>
-              <h4 class="title">
-                <a href="service-details.html" class="stretched-link">
-                  Création de sites web dynamiques
-                </a>
-              </h4>
+              <h4 class="title">Création de sites web dynamiques</h4>
               <p class="description">
                 Réalisation de sites vitrines, portfolios, blogs, e-commerce avec des fonctionnalités sur mesure et une
                 interface d’administration intégrée.
@@ -397,21 +590,18 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
             <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link"> Design Responsive & Mobile
-                  First </a></h4>
+              <h4 class="title">Design Responsive &amp; Mobile First</h4>
               <p class="description">
                 Optimisation de chaque site pour les mobiles et tablettes, avec un affichage fluide, rapide et
                 ergonomique sur tous les appareils.
-                /p>
+              </p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
             <div>
-              <h4 class="title"><a href="./service-details.html" class="stretched-link"> Intégration & Optimisation
-                </a>
-              </h4>
+              <h4 class="title">Intégration &amp; Optimisation</h4>
               <p class="description">
                 Intégration de maquettes UI/UX et optimisation du code pour un meilleur temps de chargement,
                 référencement naturel (SEO) et accessibilité.
@@ -421,10 +611,8 @@
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Maintenance & évolutivité</a>
-              </h4>
-              <p class="description">engagement et prise en charges des besoins evolutifs du clients.</p>
+            <div>              <h4 class="title">Maintenance &amp; évolutivité</h4>
+              <p class="description">Engagement et prise en charge des besoins évolutifs du client.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -441,8 +629,8 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p><b>Vous avez un projet,une idée ou une question?</b><br>
-          N'hesitez pas a me contacter.Je suis disponible pour discuter
+        <p><b>Vous avez un projet, une idée ou une question ?</b><br>
+          N'hésitez pas à me contacter. Je suis disponible pour discuter
           de vos besoins et y apporter des solutions sur mesure.
         </p>
       </div><!-- End Section Title -->
@@ -457,7 +645,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h3>Address</h3>
+                  <h3>Adresse</h3>
                   <p>Mambanda-Bonaberi, Douala</p>
                 </div>
               </div><!-- End Info Item -->
@@ -473,7 +661,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Email </h3>
+                  <h3>Email</h3>
                   <p>jahsauveymele@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
@@ -493,28 +681,33 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">nom</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="" placeholder="votre nom..">
+                  <label for="name-field" class="pb-2">Nom</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required=""
+                    placeholder="Votre nom…">
                 </div>
 
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="" placeholder="entrez votre email..">
+                  <label for="email-field" class="pb-2">Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required=""
+                    placeholder="votre@email.com">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">object</label>
-                  <input type="text" class="form-control" name="object" id="subject-field" required="" placeholder="l'object du message..">
+                  <label for="subject-field" class="pb-2">Objet</label>
+                  <input type="text" class="form-control" name="object" id="subject-field" required=""
+                    placeholder="L'objet du message…">
                 </div>
 
                 <div class="col-md-12">
                   <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""
+                    placeholder="Votre message…"></textarea>
                 </div>
 
-                  <button type="submit" class="btn btn-primary w-100">Envoyer </button>
-                <!-- <div class="col-md-12 text-center">
-                </div> -->
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary w-100"><i class="bi bi-send me-2"></i>Envoyer le
+                    message</button>
+                </div>
 
               </div>
             </form>
@@ -532,8 +725,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Jahsauve yimele</strong> <span>All Rights
-            Reserved</span></p>
+        <p>© <strong class="px-1 sitename">Jahsauve Yimele</strong> <span>Tous droits réservés</span></p>
       </div>
     </div>
 
