@@ -28,6 +28,23 @@
   var group = new THREE.Group();
   scene.add(group);
 
+  /* Couleurs pilotées par les tokens CSS (--scene-*) : le thème clair/sombre
+     reste la source unique, la scène se recolore sur l'événement 'themechange'. */
+  function sceneColor(token) {
+    var value = getComputedStyle(document.documentElement)
+      .getPropertyValue(token)
+      .trim()
+      .replace('#', '');
+    var parsed = parseInt(value, 16);
+    return isNaN(parsed) ? null : parsed;
+  }
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light'
+      ? 'light'
+      : 'dark';
+  }
+
   // Forme principale : nœud toroïdal métallique
   var knot = new THREE.Mesh(
     new THREE.TorusKnotGeometry(1.7, 0.5, 240, 40),
@@ -85,6 +102,33 @@
   var blue = new THREE.PointLight(0x3b82f6, 0.7);
   blue.position.set(0, -6, -7);
   scene.add(blue);
+
+  /* Application du thème courant (puis à chaque bascule clair/sombre) */
+  function applySceneTheme(theme) {
+    var primary = sceneColor('--scene-primary');
+    var secondary = sceneColor('--scene-secondary');
+    var particle = sceneColor('--scene-particle');
+    var emissive = sceneColor('--scene-emissive');
+
+    if (primary !== null) {
+      knot.material.color.setHex(primary);
+      blue.color.setHex(primary);
+    }
+    if (secondary !== null) {
+      shell.material.color.setHex(secondary);
+      cyan.color.setHex(secondary);
+    }
+    if (particle !== null) stars.material.color.setHex(particle);
+    if (emissive !== null) knot.material.emissive.setHex(emissive);
+
+    // Traceur utile pour le débogage et les vérifications automatisées
+    canvas.setAttribute('data-scene-theme', theme || currentTheme());
+  }
+
+  applySceneTheme(currentTheme());
+  document.addEventListener('themechange', function (event) {
+    applySceneTheme(event.detail && event.detail.theme);
+  });
 
   // Parallaxe douce au survol de la souris
   var targetX = 0;

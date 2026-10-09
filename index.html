@@ -1,15 +1,48 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Jahsauve Yimele — Développeur web & web designer | Portfolio</title>
+
+  <!-- Thème et langue : appliqués avant la première peinture pour éviter tout flash.
+       Priorité au choix enregistré, sinon préférence système (thème), sinon sombre / français. -->
+  <script>
+    (function () {
+      var theme = null;
+      try {
+        theme = localStorage.getItem('portfolio-theme');
+      } catch (e) { /* stockage indisponible : on reste sur la préférence système */ }
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+          ? 'light'
+          : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+
+      var lang = null;
+      try {
+        lang = localStorage.getItem('portfolio-lang');
+      } catch (e) { /* stockage indisponible : français par défaut */ }
+      if (lang !== 'en' && lang !== 'fr') lang = 'fr';
+      document.documentElement.setAttribute('lang', lang);
+
+      /* Filet de sécurité anti-flash : main.css masque le corps tant que
+         i18n.js n'a pas traduit le DOM ; si ce script ne se charge pas,
+         on lève l'attente pour ne jamais laisser une page vide. */
+      if (lang === 'en') {
+        setTimeout(function () {
+          document.documentElement.setAttribute('data-i18n-ready', '');
+        }, 3000);
+      }
+    })();
+  </script>
+  <title data-i18n="Jahsauve Yimele — Développeur web &amp; web designer | Portfolio">Jahsauve Yimele — Développeur web & web designer | Portfolio</title>
   <meta
     content="Portfolio de Jahsauve Yimele, développeur web & web designer basé à Douala (Cameroun) : sites vitrines, e-commerce, applications web et design d'interfaces."
-    name="description">
+    name="description" data-i18n="Portfolio de Jahsauve Yimele, développeur web &amp; web designer basé à Douala (Cameroun) : sites vitrines, e-commerce, applications web et design d'interfaces." data-i18n-attr="content=Portfolio de Jahsauve Yimele, développeur web &amp; web designer basé à Douala (Cameroun) : sites vitrines, e-commerce, applications web et design d'interfaces.">
   <meta content="Jahsauve Yimele, développeur web, web designer, freelance, Douala, Cameroun, portfolio, PHP, Bootstrap"
-    name="keywords">
+    name="keywords" data-i18n="Jahsauve Yimele, développeur web, web designer, freelance, Douala, Cameroun, portfolio, PHP, Bootstrap" data-i18n-attr="content=Jahsauve Yimele, développeur web, web designer, freelance, Douala, Cameroun, portfolio, PHP, Bootstrap">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.jpg" rel="icon">
@@ -40,32 +73,46 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.webp" onerror="this.src='assets/img/my-profile-img.png'"
-        alt="Portrait de Jahsauve Yimele" class="img-fluid rounded-circle">
+      <img src="assets/img/hero.jpg" onerror="this.src='assets/img/my-profile-img.png'"
+        alt="Portrait de Jahsauve Yimele" class="img-fluid rounded-circle" data-i18n="Portrait de Jahsauve Yimele" data-i18n-attr="alt=Portrait de Jahsauve Yimele">
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Jahsauve Yimele</h1>
+      <h1 class="sitename" data-i18n="Jahsauve Yimele">Jahsauve Yimele</h1>
     </a>
 
     <div class="social-links text-center">
-      <a href="https://github.com/dev-Jahsauve" target="_blank" rel="noopener" aria-label="GitHub"><i
+      <a href="https://github.com/dev-Jahsauve" target="_blank" rel="noopener" aria-label="GitHub" data-i18n="GitHub" data-i18n-attr="aria-label=GitHub"><i
           class="bi bi-github"></i></a>
       <a href="https://wa.me/237698308780?text=Bonjour%20je%20souhaite%20en%20savoir%20davantage%20sur%20vos%20services"
-        class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp" data-i18n="WhatsApp" data-i18n-attr="aria-label=WhatsApp"><i class="bi bi-whatsapp"></i></a>
       <a href="https://www.linkedin.com/in/jahsauve-yimele-387468344?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-        class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn" data-i18n="LinkedIn" data-i18n-attr="aria-label=LinkedIn"><i class="bi bi-linkedin"></i></a>
     </div>
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Accueil</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i>À propos</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Réalisations</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i>Contact</a></li>
+        <li><a href="#hero" class="active" data-i18n="Accueil"><i class="bi bi-house navicon"></i>Accueil</a></li>
+        <li><a href="#about" data-i18n="À propos"><i class="bi bi-person navicon"></i>À propos</a></li>
+        <li><a href="#portfolio" data-i18n="Réalisations"><i class="bi bi-images navicon"></i>Réalisations</a></li>
+        <li><a href="#services" data-i18n="Services"><i class="bi bi-hdd-stack navicon"></i>Services</a></li>
+        <li><a href="#contact" data-i18n="Contact"><i class="bi bi-envelope navicon"></i>Contact</a></li>
       </ul>
     </nav>
+
+    <!-- Bascule clair / sombre : même élément en desktop et dans le tiroir mobile -->
+    <div class="theme-bar">
+      <button type="button" id="lang-toggle" class="theme-toggle lang-toggle" aria-pressed="false"
+        aria-label="Passer en anglais" data-i18n="Passer en anglais" data-i18n-attr="aria-label=Passer en anglais">
+        <span class="lang-opt is-active" data-lang="fr">FR</span>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <span class="lang-opt" data-lang="en">EN</span>
+      </button>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Passer en thème clair" data-i18n="Passer en thème clair" data-i18n-attr="aria-label=Passer en thème clair">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+        <span class="theme-toggle-label" data-i18n="Thème clair">Thème clair</span>
+      </button>
+    </div>
 
   </header>
 
@@ -77,9 +124,9 @@
       <canvas id="hero-3d" aria-hidden="true"></canvas>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Jahsauve Yimele</h2>
-        <p>Je suis <span class="typed"
-            data-typed-items="Développeur Web,Web Designer,Développeur Freelance">Développeur Web</span><span
+        <h2 data-i18n="Jahsauve Yimele">Jahsauve Yimele</h2>
+        <p data-i18n="Je suis">Je suis <span class="typed"
+            data-typed-items="Développeur Web,Web Designer,Développeur Freelance" data-i18n="Développeur Web" data-i18n-attr="data-typed-items=Développeur Web,Web Designer,Développeur Freelance">Développeur Web</span><span
             class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
 
@@ -90,8 +137,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>À propos</h2>
-        <p>Je suis passionné par le développement web et la création d’interfaces intuitives. Grâce à mes compétences en
+        <h2 data-i18n="À propos">À propos</h2>
+        <p data-i18n="Je suis passionné par le développement web et la création d’interfaces intuitives. Grâce à mes compétences en design et en programmation, je conçois des solutions numériques modernes, performantes et centrées utilisateur.">Je suis passionné par le développement web et la création d’interfaces intuitives. Grâce à mes compétences en
           design et en programmation, je conçois des solutions numériques modernes, performantes et centrées
           utilisateur.
         </p>
@@ -102,30 +149,30 @@
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
             <img src="assets/img/my-profile-img.webp" onerror="this.src='assets/img/my-profile-img.png'"
-              class="img-fluid" alt="Portrait de Jahsauve Yimele">
+              class="img-fluid" alt="Portrait de Jahsauve Yimele" data-i18n="Portrait de Jahsauve Yimele" data-i18n-attr="alt=Portrait de Jahsauve Yimele">
           </div>
           <div class="col-lg-8 content">
-            <h2>Développeur web &amp; Web Designer.</h2>
-            <p class="fst-italic py-3">
+            <h2 data-i18n="Développeur web &amp; Web Designer.">Développeur web &amp; Web Designer.</h2>
+            <p class="fst-italic py-3" data-i18n="Je suis un développeur web créatif avec une solide expérience en conception d’interfaces et développement front-end/back-end. Mon objectif est de transformer des idées en produits digitaux efficaces.">
               Je suis un développeur web créatif avec une solide expérience en conception d’interfaces et développement
               front-end/back-end. Mon objectif est de transformer des idées en produits digitaux efficaces.
             </p>
             <div class="row">
               <div class="col-lg-6">
-                <ul>                  <li><i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span>21 août 2006</span>
+                <ul>                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Date de naissance:">Date de naissance:</strong> <span data-i18n="21 août 2006">21 août 2006</span>
                   </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Site Web:</strong>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Site Web:">Site Web:</strong>
                     <span>mon-portfolio-opal-phi.vercel.app</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Tel:</strong> <span>+237 6 98 30 87 80</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Douala, Cameroun</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Tel:">Tel:</strong> <span>+237 6 98 30 87 80</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Ville:">Ville:</strong> <span data-i18n="Douala, Cameroun">Douala, Cameroun</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Âge:</strong> <span>20</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Diplôme :</strong> <span>BTS Développement Web</span>
-                  </li>                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>jahsauveymele@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Disponible</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Âge:">Âge:</strong> <span>20</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Diplôme :">Diplôme :</strong> <span data-i18n="BTS Développement Web">BTS Développement Web</span>
+                  </li>                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Email:">Email:</strong> <span>jahsauveymele@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="Freelance:">Freelance:</strong> <span data-i18n="Disponible">Disponible</span></li>
                 </ul>
               </div>
             </div>
@@ -141,8 +188,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Compétences</h2>
-        <p>Je maîtrise les technologies suivantes, que j'utilise pour concevoir des applications web modernes,
+        <h2 data-i18n="Compétences">Compétences</h2>
+        <p data-i18n="Je maîtrise les technologies suivantes, que j'utilise pour concevoir des applications web modernes, dynamiques et performantes :">Je maîtrise les technologies suivantes, que j'utilise pour concevoir des applications web modernes,
           dynamiques et performantes :
         </p>
       </div><!-- End Section Title -->
@@ -154,7 +201,7 @@
           <div class="col-lg-6">
 
             <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">99%</i></span>
+              <span class="skill"><span data-i18n="HTML">HTML</span> <i class="val">99%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">
                 </div>
@@ -162,7 +209,7 @@
             </div><!-- End Skills Item -->
 
             <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+              <span class="skill"><span data-i18n="CSS">CSS</span> <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                 </div>
@@ -175,7 +222,7 @@
           <div class="col-lg-6">
 
             <div class="progress">
-              <span class="skill"><span>JavaScript</span> <i class="val">70%</i></span>
+              <span class="skill"><span data-i18n="JavaScript">JavaScript</span> <i class="val">70%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
                 </div>
@@ -183,7 +230,7 @@
             </div><!-- End Skills Item -->
 
             <div class="progress">
-              <span class="skill"><span>PHP</span> <i class="val">60%</i></span>
+              <span class="skill"><span data-i18n="PHP">PHP</span> <i class="val">60%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
                 </div>
@@ -205,18 +252,18 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>
+        <h2 data-i18n="Portfolio">Portfolio</h2>
+        <p data-i18n="Chaque projet que je réalise est le reflet de ma passion pour le développement web. Du design à la programmation, je mets un point d'honneur à créer des solutions modernes, efficaces et centrées sur l'utilisateur. Découvrez ici une sélection de mes réalisations en tant que">
           Chaque projet que je réalise est le reflet de ma passion pour le développement web. Du design à la
           programmation, je mets un point d'honneur à créer des solutions modernes, efficaces et centrées sur
           l'utilisateur.
-          Découvrez ici une sélection de mes réalisations en tant que <b>Développeur Web Full Stack PHP</b> — des
+          Découvrez ici une sélection de mes réalisations en tant que <b data-i18n="Développeur Web Full Stack PHP">Développeur Web Full Stack PHP</b><span data-i18n="— des applications dynamiques, des sites responsives et des interfaces soignées, développés avec PHP, JavaScript, HTML/CSS, Bootstrap et bien plus. Explorez mes projets et voyez comment je transforme des idées en expériences web concrètes et performantes."> — des
           applications
           dynamiques, des sites responsives et des interfaces soignées, développés avec PHP, JavaScript, HTML/CSS,
           Bootstrap et bien plus.
 
           Explorez mes projets et voyez comment je transforme des idées en expériences web concrètes et performantes.
-        </p>
+        </span></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -224,7 +271,7 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Projets phares</li>
+            <li data-filter="*" class="filter-active" data-i18n="Projets phares">Projets phares</li>
           </ul><!-- End Portfolio Filters -->
 
 
@@ -237,26 +284,26 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/afritools.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu du site AfriTools AI">
-                  <span class="portfolio-cat">SaaS · IA</span>
-                  <span class="portfolio-status">En cours</span>
+                    alt="Aperçu du site AfriTools AI" data-i18n="Aperçu du site AfriTools AI" data-i18n-attr="alt=Aperçu du site AfriTools AI">
+                  <span class="portfolio-cat" data-i18n="SaaS · IA">SaaS · IA</span>
+                  <span class="portfolio-status" data-i18n="En cours">En cours</span>
                   <a class="portfolio-qr" href="https://afritools.netlify.app" target="_blank" rel="noopener"
-                    title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    title="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le projet sur mobile">
                     <img
                       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fafritools.netlify.app&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers AfriTools AI">
+                      width="72" height="72" loading="lazy" alt="QR code vers AfriTools AI" data-i18n="QR code vers AfriTools AI" data-i18n-attr="alt=QR code vers AfriTools AI">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>AfriTools AI</h3>
-                  <p>Projet SaaS en cours de développement pour les entrepreneurs africains : un outil IA de génération
+                  <h3 data-i18n="AfriTools AI">AfriTools AI</h3>
+                  <p data-i18n="Projet SaaS en cours de développement pour les entrepreneurs africains : un outil IA de génération de contenus marketing.">Projet SaaS en cours de développement pour les entrepreneurs africains : un outil IA de génération
                     de contenus marketing.</p>
-                  <div class="portfolio-tags"><span>SaaS</span><span>IA</span><span>Marketing</span></div>
+                  <div class="portfolio-tags"><span data-i18n="SaaS">SaaS</span><span data-i18n="IA">IA</span><span data-i18n="Marketing">Marketing</span></div>
                   <div class="portfolio-actions">
                     <a href="https://afritools.netlify.app" target="_blank" rel="noopener"
-                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
+                      class="portfolio-link" data-i18n="Voir le site"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
                     <a href="assets/img/portfolio/afritools.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -268,25 +315,25 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/fabiole-vitrine.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu du site vitrine Fabiole Metal">
-                  <span class="portfolio-cat">Site vitrine</span>
-                  <span class="portfolio-status">Nouveau</span>
-                  <a class="portfolio-qr" href="https://fabiole-liard.vercel.app/" target="_blank" rel="noopener"
-                    title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    alt="Aperçu du site vitrine Fabiole Metal" data-i18n="Aperçu du site vitrine Fabiole Metal" data-i18n-attr="alt=Aperçu du site vitrine Fabiole Metal">
+                  <span class="portfolio-cat" data-i18n="Site vitrine">Site vitrine</span>
+                  <span class="portfolio-status" data-i18n="Nouveau">Nouveau</span>
+                  <a class="portfolio-qr" href="https://fabiole-metal.com/" target="_blank" rel="noopener"
+                    title="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le projet sur mobile">
                     <img
-                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Ffabiole-liard.vercel.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers le site Fabiole Metal">
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Ffabiole-metal.com%2F&amp;color=0b111d&amp;bgcolor=ffffff"
+                      width="72" height="72" loading="lazy" alt="QR code vers le site Fabiole Metal" data-i18n="QR code vers le site Fabiole Metal" data-i18n-attr="alt=QR code vers le site Fabiole Metal">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Fabiole Metal — Site Vitrine</h3>
-                  <p>Site vitrine professionnel réalisé pour un client : fabrication métallique sur mesure.</p>
-                  <div class="portfolio-tags"><span>Site vitrine</span><span>Client</span></div>
+                  <h3 data-i18n="Fabiole Metal — Site Vitrine">Fabiole Metal — Site Vitrine</h3>
+                  <p data-i18n="Site vitrine professionnel réalisé pour un client : fabrication métallique sur mesure.">Site vitrine professionnel réalisé pour un client : fabrication métallique sur mesure.</p>
+                  <div class="portfolio-tags"><span data-i18n="Site vitrine">Site vitrine</span><span data-i18n="Client">Client</span></div>
                   <div class="portfolio-actions">
-                    <a href="https://fabiole-liard.vercel.app/" target="_blank" rel="noopener"
-                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
+                    <a href="https://fabiole-metal.com/" target="_blank" rel="noopener"
+                      class="portfolio-link" data-i18n="Voir le site"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
                     <a href="assets/img/portfolio/fabiole-vitrine.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -298,25 +345,25 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/fabiole-ecommerce.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu de la boutique Fabiole Metal">
-                  <span class="portfolio-cat">E-commerce</span>
-                  <span class="portfolio-status">Nouveau</span>
+                    alt="Aperçu de la boutique Fabiole Metal" data-i18n="Aperçu de la boutique Fabiole Metal" data-i18n-attr="alt=Aperçu de la boutique Fabiole Metal">
+                  <span class="portfolio-cat" data-i18n="E-commerce">E-commerce</span>
+                  <span class="portfolio-status" data-i18n="Nouveau">Nouveau</span>
                   <a class="portfolio-qr" href="https://fabio-m-gfvr.vercel.app/" target="_blank" rel="noopener"
-                    title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    title="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le projet sur mobile">
                     <img
                       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Ffabio-m-gfvr.vercel.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers la boutique Fabiole Metal">
+                      width="72" height="72" loading="lazy" alt="QR code vers la boutique Fabiole Metal" data-i18n="QR code vers la boutique Fabiole Metal" data-i18n-attr="alt=QR code vers la boutique Fabiole Metal">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Fabiole Metal — E-commerce</h3>
-                  <p>Boutique e-commerce réalisée pour le même client : vente d'ouvrages métalliques en ligne.</p>
-                  <div class="portfolio-tags"><span>E-commerce</span><span>Boutique</span></div>
+                  <h3 data-i18n="Fabiole Metal — E-commerce">Fabiole Metal — E-commerce</h3>
+                  <p data-i18n="Boutique e-commerce réalisée pour le même client : vente d'ouvrages métalliques en ligne.">Boutique e-commerce réalisée pour le même client : vente d'ouvrages métalliques en ligne.</p>
+                  <div class="portfolio-tags"><span data-i18n="E-commerce">E-commerce</span><span data-i18n="Boutique">Boutique</span></div>
                   <div class="portfolio-actions">
                     <a href="https://fabio-m-gfvr.vercel.app/" target="_blank" rel="noopener"
-                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir la boutique</a>
+                      class="portfolio-link" data-i18n="Voir la boutique"><i class="bi bi-arrow-up-right"></i> Voir la boutique</a>
                     <a href="assets/img/portfolio/fabiole-ecommerce.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -328,25 +375,25 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/sarl.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu du site Global Edition SARL">
-                  <span class="portfolio-cat">Site vitrine</span>
+                    alt="Aperçu du site Global Edition SARL" data-i18n="Aperçu du site Global Edition SARL" data-i18n-attr="alt=Aperçu du site Global Edition SARL">
+                  <span class="portfolio-cat" data-i18n="Site vitrine">Site vitrine</span>
                   <a class="portfolio-qr" href="https://willowy-dango-ab29e7.netlify.app/" target="_blank"
-                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le projet sur mobile">
                     <img
                       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fwillowy-dango-ab29e7.netlify.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers le site Global Edition SARL">
+                      width="72" height="72" loading="lazy" alt="QR code vers le site Global Edition SARL" data-i18n="QR code vers le site Global Edition SARL" data-i18n-attr="alt=QR code vers le site Global Edition SARL">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Global Edition SARL</h3>
-                  <p>Site vitrine présentant les services de la société Global Edition.</p>
-                  <div class="portfolio-tags"><span>Site vitrine</span><span>Client</span></div>
+                  <h3 data-i18n="Global Edition SARL">Global Edition SARL</h3>
+                  <p data-i18n="Site vitrine présentant les services de la société Global Edition.">Site vitrine présentant les services de la société Global Edition.</p>
+                  <div class="portfolio-tags"><span data-i18n="Site vitrine">Site vitrine</span><span data-i18n="Client">Client</span></div>
                   <div class="portfolio-actions">
                     <a href="https://willowy-dango-ab29e7.netlify.app/" title="Services de Global Edition SARL"
-                      target="_blank" rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i>
+                      target="_blank" rel="noopener" class="portfolio-link" data-i18n="Voir le site" data-i18n-attr="title=Services de Global Edition SARL"><i class="bi bi-arrow-up-right"></i>
                       Voir le site</a>
                     <a href="assets/img/portfolio/sarl.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -358,24 +405,24 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/portfolio.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu de mon portfolio">
-                  <span class="portfolio-cat">Portfolio</span>
+                    alt="Aperçu de mon portfolio" data-i18n="Aperçu de mon portfolio" data-i18n-attr="alt=Aperçu de mon portfolio">
+                  <span class="portfolio-cat" data-i18n="Portfolio">Portfolio</span>
                   <a class="portfolio-qr" href="https://mon-portfolio-opal-phi.vercel.app" target="_blank"
-                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le projet sur mobile">
                     <img
                       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fmon-portfolio-opal-phi.vercel.app&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers mon portfolio en ligne">
+                      width="72" height="72" loading="lazy" alt="QR code vers mon portfolio en ligne" data-i18n="QR code vers mon portfolio en ligne" data-i18n-attr="alt=QR code vers mon portfolio en ligne">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Mon Portfolio</h3>
-                  <p>Présentation de mon profil de développeur.</p>
-                  <div class="portfolio-tags"><span>Portfolio</span><span>Design</span></div>
+                  <h3 data-i18n="Mon Portfolio">Mon Portfolio</h3>
+                  <p data-i18n="Présentation de mon profil de développeur.">Présentation de mon profil de développeur.</p>
+                  <div class="portfolio-tags"><span data-i18n="Portfolio">Portfolio</span><span data-i18n="Design">Design</span></div>
                   <div class="portfolio-actions">
                     <a href="https://mon-portfolio-opal-phi.vercel.app" target="_blank" rel="noopener"
-                      class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
+                      class="portfolio-link" data-i18n="Voir le site"><i class="bi bi-arrow-up-right"></i> Voir le site</a>
                     <a href="assets/img/portfolio/portfolio.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -386,24 +433,24 @@
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
-                  <img src="assets/img/portfolio/cv.webp" class="img-fluid" loading="lazy" alt="Aperçu de mon CV en ligne">
-                  <span class="portfolio-cat">CV numérique</span>
+                  <img src="assets/img/portfolio/cv.webp" class="img-fluid" loading="lazy" alt="Aperçu de mon CV en ligne" data-i18n="Aperçu de mon CV en ligne" data-i18n-attr="alt=Aperçu de mon CV en ligne">
+                  <span class="portfolio-cat" data-i18n="CV numérique">CV numérique</span>
                   <a class="portfolio-qr" href="https://jahsauve.netlify.app/" target="_blank" rel="noopener"
-                    title="Scannez ce QR code pour ouvrir le CV sur mobile">
+                    title="Scannez ce QR code pour ouvrir le CV sur mobile" data-i18n="Scannez ce QR code pour ouvrir le CV sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le CV sur mobile">
                     <img
                       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fjahsauve.netlify.app%2F&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers mon CV en ligne">
+                      width="72" height="72" loading="lazy" alt="QR code vers mon CV en ligne" data-i18n="QR code vers mon CV en ligne" data-i18n-attr="alt=QR code vers mon CV en ligne">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Mon CV en ligne</h3>
-                  <p>Présentation de mon parcours et de mes compétences.</p>
-                  <div class="portfolio-tags"><span>CV</span><span>Parcours</span></div>
+                  <h3 data-i18n="Mon CV en ligne">Mon CV en ligne</h3>
+                  <p data-i18n="Présentation de mon parcours et de mes compétences.">Présentation de mon parcours et de mes compétences.</p>
+                  <div class="portfolio-tags"><span data-i18n="CV">CV</span><span data-i18n="Parcours">Parcours</span></div>
                   <div class="portfolio-actions">
                     <a href="https://jahsauve.netlify.app/" title="Aperçu de mon curriculum vitae" target="_blank"
-                      rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i> Voir le CV</a>
+                      rel="noopener" class="portfolio-link" data-i18n="Voir le CV" data-i18n-attr="title=Aperçu de mon curriculum vitae"><i class="bi bi-arrow-up-right"></i> Voir le CV</a>
                     <a href="assets/img/portfolio/cv.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -415,16 +462,16 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/ecosanter.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu de la plateforme Ecosanter">
-                  <span class="portfolio-cat">Santé · Télémedecine</span>
+                    alt="Aperçu de la plateforme Ecosanter" data-i18n="Aperçu de la plateforme Ecosanter" data-i18n-attr="alt=Aperçu de la plateforme Ecosanter">
+                  <span class="portfolio-cat" data-i18n="Santé · Télémedecine">Santé · Télémedecine</span>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Ecosanter</h3>
-                  <p>Plateforme de télémédecine — hors ligne pour le moment.</p>
-                  <div class="portfolio-tags"><span>Santé</span><span>Télémedecine</span></div>
+                  <h3 data-i18n="Ecosanter">Ecosanter</h3>
+                  <p data-i18n="Plateforme de télémédecine — hors ligne pour le moment.">Plateforme de télémédecine — hors ligne pour le moment.</p>
+                  <div class="portfolio-tags"><span data-i18n="Santé">Santé</span><span data-i18n="Télémedecine">Télémedecine</span></div>
                   <div class="portfolio-actions is-preview">
                     <a href="assets/img/portfolio/ecosanter.webp" title="Aperçu de la page de recherche"
-                      class="glightbox preview-link"><i class="bi bi-arrows-fullscreen"></i> Voir l'aperçu</a>
+                      class="glightbox preview-link" data-i18n="Voir l'aperçu" data-i18n-attr="title=Aperçu de la page de recherche"><i class="bi bi-arrows-fullscreen"></i> Voir l'aperçu</a>
                   </div>
                 </div>
               </article>
@@ -436,25 +483,25 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/GESNOTES.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu de l'application Gesnotes">
-                  <span class="portfolio-cat">Éducation</span>
+                    alt="Aperçu de l'application Gesnotes" data-i18n="Aperçu de l'application Gesnotes" data-i18n-attr="alt=Aperçu de l'application Gesnotes">
+                  <span class="portfolio-cat" data-i18n="Éducation">Éducation</span>
                   <a class="portfolio-qr" href="https://dev-jahsauve.github.io/Gesnotes/" target="_blank"
-                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile">
+                    rel="noopener" title="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n="Scannez ce QR code pour ouvrir le projet sur mobile" data-i18n-attr="title=Scannez ce QR code pour ouvrir le projet sur mobile">
                     <img
                       src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=https%3A%2F%2Fdev-jahsauve.github.io%2FGesnotes%2F&amp;color=0b111d&amp;bgcolor=ffffff"
-                      width="72" height="72" loading="lazy" alt="QR code vers Gesnotes">
+                      width="72" height="72" loading="lazy" alt="QR code vers Gesnotes" data-i18n="QR code vers Gesnotes" data-i18n-attr="alt=QR code vers Gesnotes">
                   </a>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Gesnotes</h3>
-                  <p>Gestion des notes pour les étudiants.</p>
-                  <div class="portfolio-tags"><span>Éducation</span><span>Gestion</span></div>
+                  <h3 data-i18n="Gesnotes">Gesnotes</h3>
+                  <p data-i18n="Gestion des notes pour les étudiants.">Gestion des notes pour les étudiants.</p>
+                  <div class="portfolio-tags"><span data-i18n="Éducation">Éducation</span><span data-i18n="Gestion">Gestion</span></div>
                   <div class="portfolio-actions">
                     <a href="https://dev-jahsauve.github.io/Gesnotes/" title="Voir le site de validation"
-                      target="_blank" rel="noopener" class="portfolio-link"><i class="bi bi-arrow-up-right"></i>
+                      target="_blank" rel="noopener" class="portfolio-link" data-i18n="Voir le site" data-i18n-attr="title=Voir le site de validation"><i class="bi bi-arrow-up-right"></i>
                       Voir le site</a>
                     <a href="assets/img/portfolio/GESNOTES.webp" class="glightbox preview-link"
-                      title="Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
+                      title="Agrandir l'aperçu" data-i18n="Agrandir l'aperçu" data-i18n-attr="title=Agrandir l'aperçu"><i class="bi bi-arrows-fullscreen"></i></a>
                   </div>
                 </div>
               </article>
@@ -466,16 +513,16 @@
               <article class="portfolio-card h-100">
                 <div class="portfolio-thumb">
                   <img src="assets/img/portfolio/Medoc.webp" class="img-fluid" loading="lazy"
-                    alt="Aperçu de la plateforme Pharmatrix">
-                  <span class="portfolio-cat">Santé · Médicaments</span>
+                    alt="Aperçu de la plateforme Pharmatrix" data-i18n="Aperçu de la plateforme Pharmatrix" data-i18n-attr="alt=Aperçu de la plateforme Pharmatrix">
+                  <span class="portfolio-cat" data-i18n="Santé · Médicaments">Santé · Médicaments</span>
                 </div>
                 <div class="portfolio-body">
-                  <h3>Pharmatrix</h3>
-                  <p>Plateforme de localisation de médicaments — hors ligne pour le moment.</p>
-                  <div class="portfolio-tags"><span>Santé</span><span>Localisation</span></div>
+                  <h3 data-i18n="Pharmatrix">Pharmatrix</h3>
+                  <p data-i18n="Plateforme de localisation de médicaments — hors ligne pour le moment.">Plateforme de localisation de médicaments — hors ligne pour le moment.</p>
+                  <div class="portfolio-tags"><span data-i18n="Santé">Santé</span><span data-i18n="Localisation">Localisation</span></div>
                   <div class="portfolio-actions is-preview">
                     <a href="assets/img/portfolio/Medoc.webp" title="Aperçu de la page de recherche"
-                      class="glightbox preview-link"><i class="bi bi-arrows-fullscreen"></i> Voir l'aperçu</a>
+                      class="glightbox preview-link" data-i18n="Voir l'aperçu" data-i18n-attr="title=Aperçu de la page de recherche"><i class="bi bi-arrows-fullscreen"></i> Voir l'aperçu</a>
                   </div>
                 </div>
               </article>
@@ -494,8 +541,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>En tant que développeur web full stack appliqué, je conçois des solutions numériques modernes, performantes
+        <h2 data-i18n="Services">Services</h2>
+        <p data-i18n="En tant que développeur web full stack appliqué, je conçois des solutions numériques modernes, performantes et adaptées aux besoins réels des utilisateurs. Mes services s'étendent du développement front-end ergonomique à l'intégration back-end robuste avec PHP en architecture MVC, en passant par le responsive design et l’optimisation des performances.">En tant que développeur web full stack appliqué, je conçois des solutions numériques modernes, performantes
           et adaptées aux besoins réels des utilisateurs. Mes services s'étendent du développement front-end ergonomique
           à l'intégration back-end robuste avec PHP en architecture MVC, en passant par le responsive design et
           l’optimisation des performances.
@@ -509,8 +556,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
             <div>
-              <h4 class="title">Conception d’interfaces modernes</h4>
-              <p class="description">
+              <h4 class="title" data-i18n="Conception d’interfaces modernes">Conception d’interfaces modernes</h4>
+              <p class="description" data-i18n="Je crée des interfaces utilisateurs interactives, intuitives et adaptées à tous les écrans (responsive design), en utilisant HTML5, CSS3, JavaScript et Bootstrap.">
                 Je crée des interfaces utilisateurs interactives, intuitives et adaptées à tous les écrans (responsive
                 design), en utilisant HTML5, CSS3, JavaScript et Bootstrap.
               </p>
@@ -521,8 +568,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
             <div>
-              <h4 class="title">Développement back-end PHP (MVC)</h4>
-              <p class="description">
+              <h4 class="title" data-i18n="Développement back-end PHP (MVC)">Développement back-end PHP (MVC)</h4>
+              <p class="description" data-i18n="Développement de la logique métier avec PHP en architecture MVC pour des sites web performants, organisés et évolutifs, avec gestion de base de données MySQL.">
                 Développement de la logique métier avec PHP en architecture MVC pour des sites web performants,
                 organisés et évolutifs, avec gestion de base de données MySQL.
               </p>
@@ -532,8 +579,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
             <div>
-              <h4 class="title">Création de sites web dynamiques</h4>
-              <p class="description">
+              <h4 class="title" data-i18n="Création de sites web dynamiques">Création de sites web dynamiques</h4>
+              <p class="description" data-i18n="Réalisation de sites vitrines, portfolios, blogs, e-commerce avec des fonctionnalités sur mesure et une interface d’administration intégrée.">
                 Réalisation de sites vitrines, portfolios, blogs, e-commerce avec des fonctionnalités sur mesure et une
                 interface d’administration intégrée.
               </p>
@@ -543,8 +590,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
             <div>
-              <h4 class="title">Design Responsive &amp; Mobile First</h4>
-              <p class="description">
+              <h4 class="title" data-i18n="Design Responsive &amp; Mobile First">Design Responsive &amp; Mobile First</h4>
+              <p class="description" data-i18n="Optimisation de chaque site pour les mobiles et tablettes, avec un affichage fluide, rapide et ergonomique sur tous les appareils.">
                 Optimisation de chaque site pour les mobiles et tablettes, avec un affichage fluide, rapide et
                 ergonomique sur tous les appareils.
               </p>
@@ -554,8 +601,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
             <div>
-              <h4 class="title">Intégration &amp; Optimisation</h4>
-              <p class="description">
+              <h4 class="title" data-i18n="Intégration &amp; Optimisation">Intégration &amp; Optimisation</h4>
+              <p class="description" data-i18n="Intégration de maquettes UI/UX et optimisation du code pour un meilleur temps de chargement, référencement naturel (SEO) et accessibilité.">
                 Intégration de maquettes UI/UX et optimisation du code pour un meilleur temps de chargement,
                 référencement naturel (SEO) et accessibilité.
               </p>
@@ -564,8 +611,8 @@
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>              <h4 class="title">Maintenance &amp; évolutivité</h4>
-              <p class="description">Engagement et prise en charge des besoins évolutifs du client.</p>
+            <div>              <h4 class="title" data-i18n="Maintenance &amp; évolutivité">Maintenance &amp; évolutivité</h4>
+              <p class="description" data-i18n="Engagement et prise en charge des besoins évolutifs du client.">Engagement et prise en charge des besoins évolutifs du client.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -581,8 +628,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p><b>Vous avez un projet, une idée ou une question ?</b><br>
+        <h2 data-i18n="Contact">Contact</h2>
+        <p data-i18n="N'hésitez pas à me contacter. Je suis disponible pour discuter de vos besoins et y apporter des solutions sur mesure."><b data-i18n="Vous avez un projet, une idée ou une question ?">Vous avez un projet, une idée ou une question ?</b><br>
           N'hésitez pas à me contacter. Je suis disponible pour discuter
           de vos besoins et y apporter des solutions sur mesure.
         </p>
@@ -598,15 +645,15 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h3>Adresse</h3>
-                  <p>Mambanda-Bonaberi, Douala</p>
+                  <h3 data-i18n="Adresse">Adresse</h3>
+                  <p data-i18n="Mambanda-Bonaberi, Douala">Mambanda-Bonaberi, Douala</p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Tel</h3>
+                  <h3 data-i18n="Tel">Tel</h3>
                   <p>+237 698 30 87 80</p>
                 </div>
               </div><!-- End Info Item -->
@@ -614,7 +661,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Email</h3>
+                  <h3 data-i18n="Email">Email</h3>
                   <p>jahsauveymele@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
@@ -634,31 +681,31 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Nom</label>
+                  <label for="name-field" class="pb-2" data-i18n="Nom">Nom</label>
                   <input type="text" name="name" id="name-field" class="form-control" required=""
-                    placeholder="Votre nom…">
+                    placeholder="Votre nom…" data-i18n="Votre nom…" data-i18n-attr="placeholder=Votre nom…">
                 </div>
 
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Email</label>
+                  <label for="email-field" class="pb-2" data-i18n="Email">Email</label>
                   <input type="email" class="form-control" name="email" id="email-field" required=""
-                    placeholder="votre@email.com">
+                    placeholder="votre@email.com" data-i18n="votre@email.com" data-i18n-attr="placeholder=votre@email.com">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Objet</label>
+                  <label for="subject-field" class="pb-2" data-i18n="Objet">Objet</label>
                   <input type="text" class="form-control" name="object" id="subject-field" required=""
-                    placeholder="L'objet du message…">
+                    placeholder="L'objet du message…" data-i18n="L'objet du message…" data-i18n-attr="placeholder=L'objet du message…">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
+                  <label for="message-field" class="pb-2" data-i18n="Message">Message</label>
                   <textarea class="form-control" name="message" rows="10" id="message-field" required=""
-                    placeholder="Votre message…"></textarea>
+                    placeholder="Votre message…" data-i18n="Votre message…" data-i18n-attr="placeholder=Votre message…"></textarea>
                 </div>
 
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary w-100"><i class="bi bi-send me-2"></i>Envoyer le
+                  <button type="submit" class="btn btn-primary w-100" data-i18n="Envoyer le message"><i class="bi bi-send me-2"></i>Envoyer le
                     message</button>
                 </div>
 
@@ -678,7 +725,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <strong class="px-1 sitename">Jahsauve Yimele</strong> <span>Tous droits réservés</span></p>
+        <p>© <strong class="px-1 sitename" data-i18n="Jahsauve Yimele">Jahsauve Yimele</strong> <span data-i18n="Tous droits réservés">Tous droits réservés</span></p>
       </div>
     </div>
 
@@ -705,6 +752,8 @@
   <script src="assets/vendor/three/three.min.js"></script>
 
   <!-- Main JS File -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/theme.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/hero3d.js"></script>
 

@@ -1,3 +1,15 @@
+/* ==============================================================
+   Anti-flash de langue
+   Le script de <head> pose lang="en" avant la première peinture ;
+   tant que i18n.js n'a pas traduit le DOM (data-i18n-ready), le corps
+   reste invisible plutôt que d'afficher du français. Le script de
+   <head> lève l'attente au bout de 3 s si i18n.js ne se charge pas.
+   En français (langue d'origine du HTML) la règle ne s'applique pas.
+   ============================================================== */
+html[lang="en"]:not([data-i18n-ready]) body {
+  visibility: hidden;
+}
+
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
@@ -6,27 +18,68 @@
   --nav-font: "Poppins", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* =============================================================
+   Design tokens
+   Thème sombre = valeur par défaut (identique à l'historique du site).
+   Thème clair = même jeu de variables redéfini sur [data-theme="light"].
+   Règle : aucune couleur en dur dans le reste de la feuille de style.
+   ============================================================= */
 :root {
+  /* Couleurs globales */
   --background-color: #05070d; /* Fond global du site : noir profond légèrement bleuté */
   --default-color: #c3cbdd; /* Couleur du texte courant */
   --heading-color: #ffffff; /* Couleur des titres et sous-titres */
-  --accent-color: #3b82f6; /* Bleu électrique : boutons, liens et éléments mis en avant */
-  --accent-color-2: #22d3ee; /* Cyan lumineux, combiné à l'accent pour les dégradés */
+  --accent-color: #3b82f6; /* Bleu : boutons, liens et éléments mis en avant */
+  --accent-color-2: #22d3ee; /* Cyan, associé à l'accent */
   --surface-color: #0b111d; /* Couleur des cartes, panneaux et blocs surélevés */
   --contrast-color: #ffffff; /* Texte lisible sur les fonds accentués */
   --muted-color: #8d97b0; /* Texte secondaire / discret */
-  --border-color: rgba(255, 255, 255, 0.08); /* Bordures subtiles sur fond sombre */
-}
+  --border-color: rgba(255, 255, 255, 0.08); /* Bordures subtiles */
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
+  /* Navigation (barre latérale) */
   --nav-color: #a9b3c9; /* Couleur par défaut des liens de navigation */
   --nav-hover-color: #ffffff; /* Liens de navigation au survol ou actifs */
   --nav-mobile-background-color: #0b111d; /* Fond de la navigation mobile */
   --nav-dropdown-background-color: #0b111d; /* Fond des menus déroulants */
   --nav-dropdown-color: #a9b3c9; /* Couleur des liens de menu déroulant */
   --nav-dropdown-hover-color: #ffffff; /* Liens de menu déroulant au survol */
+
+  /* Barre latérale */
+  --header-fill: #070b14;
+  --header-border: rgba(255, 255, 255, 0.08);
+  --profile-ring: rgba(255, 255, 255, 0.1);
+  --social-fill: rgba(255, 255, 255, 0.06);
+
+  /* Surfaces */
+  --panel-fill: rgba(255, 255, 255, 0.03); /* Remplissage des cartes */
+  --soft-fill: rgba(255, 255, 255, 0.04); /* Remplissage discret (filtres, champs) */
+  --thumb-fill: #0b111d; /* Fond des vignettes d'images */
+  --field-fill: rgba(255, 255, 255, 0.04); /* Champs de formulaire */
+  --field-fill-focus: rgba(255, 255, 255, 0.06);
+
+  /* Éléments pilule (boutons discrets) */
+  --pill-fill: rgba(255, 255, 255, 0.06);
+  --pill-border: rgba(255, 255, 255, 0.12);
+  --pill-ink: #ffffff;
+
+  /* Pastilles : métadonnées (tags) et tuiles d'icônes */
+  --tag-ink: #9fb6e6;
+  --tag-fill: rgba(59, 130, 246, 0.1);
+  --tag-border: rgba(59, 130, 246, 0.22);
+  --tile-fill: rgba(59, 130, 246, 0.12);
+  --tile-border: rgba(59, 130, 246, 0.35);
+  --tile-ink: #7db1ff;
+
+  /* Interactions */
+  --ring-focus: rgba(59, 130, 246, 0.15);
+  --shadow-1: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 16px 40px rgba(0, 0, 0, 0.35);
+
+  /* Scène 3D du hero (lutte par assets/js/hero3d.js) */
+  --scene-primary: #3b82f6;
+  --scene-secondary: #22d3ee;
+  --scene-particle: #8ab4ff;
+  --scene-emissive: #0a1f4d;
 }
 
 /* Color Presets - Variantes du thème sombre : sections alternées plus ou moins lumineuses */
@@ -41,6 +94,81 @@
   --default-color: #e6e9f2;
   --heading-color: #ffffff;
   --surface-color: #0b111d;
+  --contrast-color: #ffffff;
+}
+
+/* =============================================================
+   Thème clair — appliqué par le script anti-flash de <head>
+   puis maintenu par assets/js/theme.js (stockage local).
+   ============================================================= */
+[data-theme="light"] {
+  /* Couleurs globales */
+  --background-color: #f4f6f9;
+  --default-color: #3a4354;
+  --heading-color: #0f1420;
+  --accent-color: #1d4ed8;
+  --accent-color-2: #0e7490;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+  --muted-color: #5b6577;
+  --border-color: rgba(15, 20, 32, 0.1);
+
+  /* Navigation */
+  --nav-color: #414c62;
+  --nav-hover-color: #0f1420;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #414c62;
+  --nav-dropdown-hover-color: #0f1420;
+
+  /* Barre latérale */
+  --header-fill: #ffffff;
+  --header-border: rgba(15, 20, 32, 0.1);
+  --profile-ring: rgba(15, 20, 32, 0.12);
+  --social-fill: rgba(15, 20, 32, 0.05);
+
+  /* Surfaces */
+  --panel-fill: #ffffff;
+  --soft-fill: rgba(15, 20, 32, 0.04);
+  --thumb-fill: #e8ecf2;
+  --field-fill: #ffffff;
+  --field-fill-focus: #ffffff;
+
+  /* Éléments pilule */
+  --pill-fill: #ffffff;
+  --pill-border: rgba(15, 20, 32, 0.14);
+  --pill-ink: #1f2735;
+
+  /* Pastilles */
+  --tag-ink: #1d4ed8;
+  --tag-fill: rgba(29, 78, 216, 0.08);
+  --tag-border: rgba(29, 78, 216, 0.22);
+  --tile-fill: rgba(29, 78, 216, 0.08);
+  --tile-border: rgba(29, 78, 216, 0.24);
+  --tile-ink: #1d4ed8;
+
+  /* Interactions */
+  --ring-focus: rgba(29, 78, 216, 0.16);
+  --shadow-1: 0 2px 8px rgba(15, 20, 32, 0.1);
+  --shadow-2: 0 14px 34px rgba(15, 20, 32, 0.1);
+
+  /* Scène 3D du hero */
+  --scene-primary: #1d4ed8;
+  --scene-secondary: #0e7490;
+  --scene-particle: #334155;
+  --scene-emissive: #0b1633;
+}
+
+[data-theme="light"] .light-background {
+  --background-color: #fafbfd;
+  --surface-color: #ffffff;
+}
+
+[data-theme="light"] .dark-background {
+  --background-color: #ffffff;
+  --default-color: #232b3a;
+  --heading-color: #0f1420;
+  --surface-color: #f1f4f8;
   --contrast-color: #ffffff;
 }
 
@@ -145,7 +273,7 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background: linear-gradient(180deg, #070b14 0%, #05070d 100%);
+  background: var(--header-fill);
   position: fixed;
   top: 0;
   left: 0;
@@ -155,14 +283,14 @@ h6 {
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
   z-index: 997;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid var(--header-border);
 }
 
 .header .profile-img img {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid rgba(255, 255, 255, 0.1);
+  border: 8px solid var(--profile-ring);
 }
 
 .header .logo {
@@ -191,7 +319,7 @@ h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--social-fill);
   color: var(--default-color);
   margin: 0 2px;
   border-radius: 50%;
@@ -244,6 +372,68 @@ h6 {
 .header .header-toggle:hover {
   color: var(--contrast-color);
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/* Bascule de thème : même contrôle en desktop (bas de la barre latérale)
+   et dans le tiroir mobile, puisqu'il s'agit du même élément. */
+.header .theme-bar {
+  margin-top: auto;
+  padding: 20px 0 24px;
+  display: flex;
+  gap: 8px;
+}
+
+.theme-toggle {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-family: var(--nav-font);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--pill-ink);
+  background: var(--pill-fill);
+  border: 1px solid var(--pill-border);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-toggle i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Bascule de langue : même barre que le thème, largeur au contenu */
+.lang-toggle {
+  flex: 0 0 auto;
+  gap: 6px;
+  padding: 10px 15px;
+}
+
+.lang-toggle .lang-opt {
+  opacity: 0.45;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.lang-toggle .lang-opt.is-active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.lang-toggle .lang-sep {
+  opacity: 0.35;
+  font-weight: 400;
 }
 
 /*--------------------------------------------------------------
@@ -578,6 +768,12 @@ section,
   z-index: 2;
 }
 
+/* Thème clair : voile plus dense, la photo du hero devient une eau-forte discrète
+   et le titre reste lisible sans scrim supplémentaire. */
+[data-theme="light"] .hero:before {
+  background: color-mix(in srgb, var(--background-color) 78%, transparent);
+}
+
 .hero #hero-3d {
   position: absolute;
   inset: 0;
@@ -849,7 +1045,7 @@ section,
 .portfolio .portfolio-filters li {
   padding: 10px 20px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--soft-fill);
   border: 1px solid var(--border-color);
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -858,9 +1054,9 @@ section,
 
 .portfolio .portfolio-filters li:hover,
 .portfolio .portfolio-filters li.filter-active {
-  color: #ffffff;
-  background: rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.5);
+  color: var(--heading-color);
+  background: color-mix(in srgb, var(--accent-color) 14%, transparent);
+  border-color: color-mix(in srgb, var(--accent-color) 50%, transparent);
 }
 
 /*--------------------------------------------------------------
@@ -871,7 +1067,7 @@ section,
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel-fill);
   border: 1px solid var(--border-color);
   border-radius: 24px;
   overflow: hidden;
@@ -882,15 +1078,15 @@ section,
 
 .portfolio .portfolio-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(59, 130, 246, 0.45);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 12px 40px rgba(59, 130, 246, 0.12);
+  border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+  box-shadow: var(--shadow-2);
 }
 
 .portfolio .portfolio-thumb {
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #0b111d;
+  background: var(--thumb-fill);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -942,9 +1138,9 @@ section,
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  box-shadow: var(--shadow-1);
 }
 
 .portfolio .portfolio-qr {
@@ -957,7 +1153,7 @@ section,
   border-radius: 14px;
   background: #ffffff;
   border: 1px solid rgba(11, 17, 29, 0.08);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow-2);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -970,7 +1166,8 @@ section,
 
 .portfolio .portfolio-qr:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.45), 0 18px 40px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 45%, transparent),
+    var(--shadow-2);
 }
 
 .portfolio .portfolio-body {
@@ -1014,11 +1211,11 @@ section,
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9fb6e6;
+  color: var(--tag-ink);
   padding: 5px 11px;
   border-radius: 999px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.22);
+  background: var(--tag-fill);
+  border: 1px solid var(--tag-border);
 }
 
 .portfolio .portfolio-actions {
@@ -1041,9 +1238,9 @@ section,
   gap: 8px;
   font-size: 13px;
   font-weight: 600;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--pill-ink);
+  background: var(--pill-fill);
+  border: 1px solid var(--pill-border);
   padding: 9px 16px;
   border-radius: 999px;
   transition: 0.3s;
@@ -1053,7 +1250,7 @@ section,
   background: var(--accent-color);
   border-color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(59, 130, 246, 0.35);
+  box-shadow: var(--shadow-1);
 }
 
 .portfolio .portfolio-actions .preview-link {
@@ -1065,9 +1262,9 @@ section,
   height: 40px;
   padding: 0 14px;
   font-size: 13px;
-  color: #c3cbdd;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--default-color);
+  background: var(--pill-fill);
+  border: 1px solid var(--pill-border);
   border-radius: 999px;
   transition: 0.3s;
 }
@@ -1077,9 +1274,9 @@ section,
 }
 
 .portfolio .portfolio-actions .preview-link:hover {
-  color: #ffffff;
-  background: rgba(59, 130, 246, 0.18);
-  border-color: rgba(59, 130, 246, 0.5);
+  color: var(--heading-color);
+  background: color-mix(in srgb, var(--accent-color) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent-color) 50%, transparent);
 }
 
 /*--------------------------------------------------------------
@@ -1487,7 +1684,7 @@ textarea:focus-visible {
 
 .contact .form-control {
   color: var(--default-color);
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: var(--field-fill);
   border: 1px solid var(--border-color);
   border-radius: 14px;
   padding: 12px 16px;
@@ -1495,10 +1692,10 @@ textarea:focus-visible {
 }
 
 .contact .form-control:focus {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--heading-color);
+  background-color: var(--field-fill-focus);
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 4px var(--ring-focus);
 }
 
 .contact .form-control::placeholder {
@@ -1506,29 +1703,29 @@ textarea:focus-visible {
 }
 
 .contact button[type="submit"].btn-primary {
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--accent-color), #2563eb);
+  color: var(--contrast-color);
+  background: var(--accent-color);
   border: 0;
   border-radius: 14px;
   padding: 13px 24px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+  box-shadow: var(--shadow-1);
   transition: 0.3s;
 }
 
 .contact button[type="submit"].btn-primary:hover {
-  color: #ffffff;
+  color: var(--contrast-color);
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.45);
+  background: color-mix(in srgb, var(--accent-color) 86%, black);
+  box-shadow: var(--shadow-1);
 }
 
 .contact .info-wrap {
   border: 1px solid var(--border-color);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-2);
 }
 
 .contact .info-wrap iframe {
@@ -1547,17 +1744,17 @@ textarea:focus-visible {
   width: 100%;
   border-radius: 24px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 60px rgba(59, 130, 246, 0.14);
+  box-shadow: var(--shadow-2);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .about .col-lg-4 > img:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 70px rgba(59, 130, 246, 0.22);
+  box-shadow: var(--shadow-2);
 }
 
 .about .content {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel-fill);
   border: 1px solid var(--border-color);
   border-radius: 24px;
   padding: 34px;
@@ -1571,7 +1768,7 @@ textarea:focus-visible {
   font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--heading-color);
 }
 
 .about .content .fst-italic {
@@ -1582,7 +1779,7 @@ textarea:focus-visible {
 }
 
 .about .content ul strong {
-  color: #ffffff;
+  color: var(--heading-color);
   font-weight: 600;
 }
 
@@ -1596,7 +1793,7 @@ textarea:focus-visible {
 .skills .progress .skill {
   font-size: 13px;
   letter-spacing: 0.06em;
-  color: #ffffff;
+  color: var(--heading-color);
 }
 
 .skills .progress .skill .val {
@@ -1609,15 +1806,14 @@ textarea:focus-visible {
 .skills .progress-bar-wrap {
   height: 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
   overflow: hidden;
 }
 
 .skills .progress-bar {
   height: 10px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-2));
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
+  background: var(--accent-color);
 }
 
 /*--------------------------------------------------------------
@@ -1629,7 +1825,7 @@ textarea:focus-visible {
   padding: 26px;
   width: calc(100% - 24px);
   margin-inline: auto;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel-fill);
   border: 1px solid var(--border-color);
   border-radius: 22px;
   transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
@@ -1637,36 +1833,36 @@ textarea:focus-visible {
 
 .services .service-item:hover {
   transform: translateY(-6px);
-  border-color: rgba(59, 130, 246, 0.45);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 10px 34px rgba(59, 130, 246, 0.12);
+  border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+  box-shadow: var(--shadow-2);
 }
 
 .services .service-item .icon {
   border-radius: 16px;
-  background: rgba(59, 130, 246, 0.12);
-  border: 1px solid rgba(59, 130, 246, 0.35);
+  background: var(--tile-fill);
+  border: 1px solid var(--tile-border);
   width: 54px;
   height: 54px;
 }
 
 .services .service-item .icon i {
-  color: #7db1ff;
+  color: var(--tile-ink);
 }
 
 .services .service-item:hover .icon {
-  background: linear-gradient(135deg, var(--accent-color), #2563eb);
-  border-color: transparent;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .services .service-item:hover .icon i {
-  color: #ffffff;
+  color: var(--contrast-color);
 }
 
 .services .service-item .title {
   font-family: var(--heading-font);
   font-weight: 600;
   font-size: 18px;
-  color: #ffffff;
+  color: var(--heading-color);
   margin-bottom: 12px;
 }
 
@@ -1683,14 +1879,14 @@ textarea:focus-visible {
 .contact .info-item {
   margin-bottom: 14px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--panel-fill);
   border: 1px solid var(--border-color);
   border-radius: 16px;
   transition: border-color 0.3s, transform 0.3s;
 }
 
 .contact .info-item:hover {
-  border-color: rgba(59, 130, 246, 0.4);
+  border-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
   transform: translateX(4px);
 }
 
@@ -1699,14 +1895,14 @@ textarea:focus-visible {
   height: 44px;
   border-radius: 13px;
   font-size: 18px;
-  color: #7db1ff;
-  background: rgba(59, 130, 246, 0.12);
+  color: var(--tile-ink);
+  background: var(--tile-fill);
   margin-right: 14px;
 }
 
 .contact .info-item:hover i {
   background: var(--accent-color);
-  color: #ffffff;
+  color: var(--contrast-color);
 }
 
 .contact .info-item h3 {
@@ -1714,7 +1910,7 @@ textarea:focus-visible {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #ffffff;
+  color: var(--heading-color);
   margin-bottom: 3px;
 }
 
