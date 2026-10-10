@@ -79,6 +79,10 @@
     'CSS': 'CSS',
     'JavaScript': 'JavaScript',
     'PHP': 'PHP',
+    'TypeScript': 'TypeScript',
+    'React': 'React',
+    'Vite.js': 'Vite.js',
+    'Next.js': 'Next.js',
 
     /* Portfolio */
     'Portfolio': 'Portfolio',
